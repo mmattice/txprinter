@@ -20,7 +20,8 @@ class LPRClient(object):
     @defer.inlineCallbacks
     def printJob(self, queuename, jobdata, job_type='l', job_name=None):
         p = yield self.ep.connect(self.lprfactory)
-        control = p._gencontrol(1, job_name, job_name)
+        control = p._gencontrol(self.jobno, job_name, job_name)
+        self.jobno += 1
         yield p.command_receive(queuename)
         yield p.subcommand_receive_controlfile(len(control))
         yield p.send_file(control)
