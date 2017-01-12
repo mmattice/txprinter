@@ -7,6 +7,6 @@ Standards-Version: 3.9.1
 
 Package: python-txprinter
 Architecture: all
-Depends: ${misc:Depends}, ${python:Depends}
+Depends: ${misc:Depends}, ${python:Depends}, python-twisted-core
 Description: Basic network printer operations for twisted
-
+  LPRClient permits dumping data to LPR daemons to print
